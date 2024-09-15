@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>思い出アワード</title>
+    <title>表彰ページ</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -48,7 +48,7 @@
         }
 
         .winner h2 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #555;
         }
 
@@ -68,6 +68,19 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+        }
+
+        .emoine-count {
+            font-size: 2.5em;
+            color: #ffcc00;
+            font-weight: bold;
+            background-color: #ff6f61;
+            padding: 15px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .prize-info {
@@ -120,6 +133,11 @@
                 width: 100%;
                 height: auto;
             }
+
+            .emoine-count {
+                font-size: 2em;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -140,6 +158,9 @@
     <div class="winner">
         <h2>@ShotaSkywalker (高3 男子)</h2>
         
+        <!-- エモいね数を大々的に表示 -->
+        <div class="emoine-count">8,523 エモいね</div>
+        
         <!-- 動画を埋め込む -->
         <video class="winner-video" controls>
             <source src="https://example.com/shota_video.mp4" type="video/mp4">
@@ -154,7 +175,10 @@
 
     <div class="winner">
         <h2>@HanaLove (高2 女子)</h2>
-
+        
+        <!-- エモいね数を大々的に表示 -->
+        <div class="emoine-count">15,342 エモいね</div>
+        
         <!-- 動画を埋め込む -->
         <video class="winner-video" controls>
             <source src="https://example.com/hana_video.mp4" type="video/mp4">
