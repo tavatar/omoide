@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>エモいねサービス - ランディングページ</title>
+    <title>あおクラ - 思い出シェアリングサービス</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -17,147 +17,178 @@
             background-color: #ff6f61;
             color: white;
             padding: 20px;
+            font-size: 2.2em;
             text-align: center;
-            font-size: 2em;
             font-family: 'Comic Sans MS', cursive, sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         main {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
         }
 
-        h1, h2 {
-            color: #ff6f61;
-            text-align: center;
-        }
-
         h1 {
-            margin-bottom: 30px;
-        }
-
-        h2 {
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
             margin-bottom: 20px;
-        }
-
-        .section {
-            margin-bottom: 40px;
         }
 
         p {
             font-size: 1.2em;
             line-height: 1.8;
             margin-bottom: 20px;
+            color: #555;
         }
 
-        .register-button {
+        .highlight {
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+
+        .feature {
+            width: 30%;
+            text-align: center;
+        }
+
+        .feature img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .feature h2 {
+            font-size: 1.5em;
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .cta-button {
             display: block;
-            margin: 30px auto;
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            font-size: 1.5em;
+            text-align: center;
             background-color: #ff6f61;
             color: white;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 30px;
-            text-align: center;
-            width: 250px;
             text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease;
         }
 
-        .register-button:hover {
+        .cta-button:hover {
             background-color: #e65b53;
-        }
-
-        .features-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .features-list li {
-            background-color: #ffcc00;
-            padding: 15px;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-            border-radius: 10px;
         }
 
         footer {
             background-color: #ffcc00;
             color: #333;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             font-size: 1.2em;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .step {
+            width: 30%;
+            text-align: center;
+        }
+
+        .step img {
+            width: 80px;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            font-size: 1.3em;
+            color: #ff6f61;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .features, .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature, .step {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+
+            .cta-button {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    あなたの青春をシェアしよう！エモい瞬間を「エモいね」でつなぐ
+    あおクラ
 </header>
 
 <main>
-    <h1>学生時代の「忘れられない瞬間」を、今ここで共有してみませんか？</h1>
+    <h1>思い出をシェアしよう！</h1>
+    <p>「<span class="highlight">あおクラ</span>」は、あなたの青春の思い出をシェアできるサービスです。高校や中学校時代のエモい瞬間を、みんなと共有し、<span class="highlight">3段階の評価</span>で「エモさ」を表現できます。今すぐ、あなただけのストーリーを投稿してみませんか？</p>
+    
+    <div class="features">
+        <div class="feature">
+            <img src="images/share_icon.png" alt="シェア">
+            <h2>シェアする</h2>
+            <p>忘れられない思い出を簡単に投稿して、他のユーザーとシェアしよう。</p>
+        </div>
+        <div class="feature">
+            <img src="images/star_icon.png" alt="評価">
+            <h2>3段階で評価</h2>
+            <p>「エモさ」を3段階で表現！思い出が多くの共感を集めるほど評価が高くなる。</p>
+        </div>
+        <div class="feature">
+            <img src="images/award_icon.png" alt="アワード">
+            <h2>アワード</h2>
+            <p>最もエモい思い出には、<span class="highlight">1万円のAmazonギフト券</span>をプレゼント！</p>
+        </div>
+    </div>
 
-    <section class="section">
-        <p>
-            あなたが使っていたペン、乗っていた自転車、試合で活躍したサッカーボール。<br>
-            毎日の学校生活や部活での思い出は、特別なアイテムと共に刻まれています。<br>
-            そのエモい瞬間を、私たちのサービスでシェアしてみませんか？
-        </p>
-    </section>
+    <a href="register.html" class="cta-button">無料会員登録してシェアを始める！</a>
 
-    <section class="section">
-        <h2>📱 いつでもどこでも簡単に投稿</h2>
-        <p>
-            私たちのサービスは、簡単に使えるシンプルなUIで、どなたでも簡単に思い出を投稿できます。<br>
-            あなたの中に眠るエピソードをいつでもシェアできるように、モバイルでも最適化されたデザインを採用しています。<br>
-            ペンやノート、自転車など、青春を彩ったアイテムにまつわる物語を投稿して、他のユーザーから「エモいね！」をもらいましょう。
-        </p>
-    </section>
-
-    <section class="section">
-        <h2>💛 エモいねボタンでつながる感動の輪</h2>
-        <p>
-            投稿されたエピソードには「エモいね」ボタンを押して、感動や共感を示すことができます。<br>
-            エモいね数が増えると、エピソードが人気の投稿として表示され、さらに共感の輪が広がります。<br>
-            そして、エモいね数が最も多かったユーザーにはアマゾンギフト券1万円分をプレゼント！<br>
-            感動の瞬間をシェアすることで、思い出が未来へとつながる新しい体験を提供します。
-        </p>
-    </section>
-
-    <section class="section">
-        <h2>🎨 あなたの物語を彩る画像</h2>
-        <p>
-            ただ文章を投稿するだけでなく、思い出に合った画像も添付してシェアできます。<br>
-            お気に入りのアイテムを写真に残して、その瞬間を他のユーザーと共有することで、よりリアルな感動が伝わります。
-        </p>
-    </section>
-
-    <section class="section">
-        <h2>🏆 毎月、最もエモい投稿を表彰！</h2>
-        <p>
-            エモいね数が最も多かった投稿者には、アマゾンギフト券1万円分が贈られます。<br>
-            「思い出の共有」を楽しむだけでなく、共感を得て素敵なプレゼントも手に入れましょう。<br>
-            過去の表彰者は特設ページで紹介され、エピソードや関連する動画を視聴することもできます。
-        </p>
-    </section>
-
-    <a href="register.html" class="register-button">今すぐ会員登録</a>
-
-    <section class="section">
-        <h2>このサービスの特徴：</h2>
-        <ul class="features-list">
-            <li>シンプルな投稿：誰でも簡単に思い出を投稿可能！</li>
-            <li>共感の「エモいね」ボタン：感動や共感を示す新しいコミュニケーション。</li>
-            <li>表彰システム：人気投稿者には素敵な賞品！</li>
-            <li>マルチデバイス対応：スマホでも快適に利用可能！</li>
-        </ul>
-    </section>
+    <div class="steps">
+        <div class="step">
+            <img src="images/post_icon.png" alt="投稿">
+            <h3>1. 思い出を投稿</h3>
+            <p>あなたの青春の思い出を簡単に投稿できます。</p>
+        </div>
+        <div class="step">
+            <img src="images/rate_icon.png" alt="評価">
+            <h3>2. みんなで評価</h3>
+            <p>他のユーザーの思い出を「エモさ」で評価しましょう。</p>
+        </div>
+        <div class="step">
+            <img src="images/award_icon.png" alt="アワード">
+            <h3>3. アワードを獲得</h3>
+            <p>最もエモい投稿は月間アワードを受賞し、豪華賞品をゲット！</p>
+        </div>
+    </div>
 </main>
 
 <footer>
