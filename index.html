@@ -29,15 +29,9 @@
             align-items: center;
         }
 
-        .header-logo {
-            height: 60px;
-            margin-right: 15px;
-        }
-
         .header-title {
             flex-grow: 1;
             text-align: center;
-            font-size: 2em;
         }
 
         header a {
@@ -174,14 +168,14 @@
                 padding: 10px;
             }
 
-            .emoine-button {
-                padding: 10px 15px;
-                font-size: 0.9em;
+            .header-title {
+                font-size: 1.5em;
             }
 
             .floating-post-button {
                 width: auto;
                 font-size: 1em;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -189,29 +183,82 @@
 <body>
 
 <header>
-    <img src="logo.jpg" alt="Logo" class="header-logo">
+    <img src="logo.jpg" alt="Logo" style="height:40px; margin-right: 10px;">
     <span class="header-title">あおクラ</span>
     <a href="award.html">🏆 思い出アワード</a>
 </header>
 
 <main>
+    <!-- 元の画像パスを維持した5件の投稿 -->
     <div class="tweet">
         <div class="tweet-header">@ShotaSkywalker (高3 男子)</div>
         <div class="tweet-item">物: ペン</div>
         <img src="./high_school_pen_image.png" alt="愛用のペンの画像">
         <div class="tweet-body">「高校3年間、ずっと使っていたペン。色褪せて少し傷だらけになっていたけど、テストや宿題、ノートの隅っこに落書きする時も、いつもこのペンと一緒だった。卒業の日、このペンが最後の仕事を終えたとき、なんだか友達と別れるような寂しい気持ちになった。」</div>
         <div class="tweet-footer">5分前</div>
-
-        <!-- 星3段階でエモさを評価 -->
         <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
             <span class="emoine-star">☆</span>
             <span class="emoine-star">☆</span>
             <span class="emoine-star">☆</span>
         </div>
-        <span class="emoine-count" data-count="8523">8,523 エモいね</span>
+        <span class="emoine-count">8,523 エモいね</span>
     </div>
 
-    <!-- 他のツイートも同様に配置 -->
+    <div class="tweet">
+        <div class="tweet-header">@HanaLove (高2 女子)</div>
+        <div class="tweet-item">物: 自転車</div>
+        <img src="./middle_school_bicycle_image.png" alt="自転車の画像">
+        <div class="tweet-body">「中学2年生の時に買った自転車。毎日通学に使っていたけど、たまに友達と遠くの公園まで探検したり、帰り道に少し遠回りして夕焼けを眺めたり、この自転車と過ごした時間は特別だった。今はもう少し大きい自転車に乗り換えたけど、あの頃の思い出はいつもこの自転車と一緒にある。」</div>
+        <div class="tweet-footer">10分前</div>
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count">15,342 エモいね</span>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@DaiKicks (中3 男子)</div>
+        <div class="tweet-item">物: ノート</div>
+        <img src="./full_notebook_image.png" alt="ノートの画像">
+        <div class="tweet-body">「勉強が苦手だった俺が、唯一最後まで埋め尽くしたノート。ノートの端っこには先生の話を無視して書いたラクガキや、友達と回したメモがいっぱい。勉強の内容はあまり覚えてないけど、このノートを見返すと、あの頃の自分が何を考えていたのかが一瞬で蘇る。」</div>
+        <div class="tweet-footer">15分前</div>
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count">5,892 エモいね</span>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@MaiFlower (高1 女子)</div>
+        <div class="tweet-item">物: 手紙</div>
+        <img src="./friend_letter_image.png" alt="手紙の画像">
+        <div class="tweet-body">「友達からもらった手紙、何年経っても色褪せない。クラスが変わって会うことが少なくなったけど、この手紙を読むたびに、彼女との思い出が鮮明に蘇る。」</div>
+        <div class="tweet-footer">20分前</div>
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count">7,540 エモいね</span>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@YutoGoal (高2 男子)</div>
+        <div class="tweet-item">物: サッカーボール</div>
+        <img src="./soccer_ball_image.png" alt="サッカーボールの画像">
+        <div class="tweet-body">「試合に出るたびに一緒に戦ってきたサッカーボール。ボロボロになったけど、最後のゴールを決めた瞬間、このボールと一緒に味わった達成感は一生忘れられない。」</div>
+        <div class="tweet-footer">25分前</div>
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count">10,394 エモいね</span>
+    </div>
 
 </main>
 
@@ -229,8 +276,8 @@
         const stars = element.querySelectorAll('.emoine-star');
         const selected = element.getAttribute('data-selected');
         const countElement = element.nextElementSibling;
-        let currentCount = parseInt(countElement.getAttribute('data-count'));
-        
+        let currentCount = parseInt(countElement.textContent.replace(/,/g, ''));
+
         if (selected === "1") {
             alert("すでに評価済みです。");
             return;
@@ -250,7 +297,6 @@
         // エモいね数をクリックした星の数だけ増加
         currentCount += clickedStarIndex + 1;
         countElement.textContent = currentCount.toLocaleString() + " エモいね";
-        countElement.setAttribute('data-count', currentCount);
 
         // 一度評価したら評価済みとする
         element.setAttribute('data-selected', "1");
