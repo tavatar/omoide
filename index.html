@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>思い出一覧</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+	header {
+	    background-color: #4CAF50;
+	    color: white;
+	    padding: 15px;
+	    text-align: center;
+	    font-size: 1.5em;
+	    position: sticky;
+	    top: 0;
+	    z-index: 1000;
+	    display: flex;
+	    justify-content: center; /* 中央に配置 */
+	    align-items: center;
+	    position: relative; /* 「表彰ページ」リンクの位置を調整するためにrelativeを指定 */
+	}
+
+	header a {
+	    position: absolute; /* ヘッダ内で「表彰ページ」リンクを右上に配置 */
+	    right: 15px; /* 右端に固定 */
+	    color: white;
+	    text-decoration: none;
+	    font-size: 1em;
+	    background-color: #ff4500;
+	    padding: 10px 15px;
+	    border-radius: 5px;
+	    transition: background-color 0.3s ease;
+	}
+
+        header a:hover {
+            background-color: #ff6347;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tweet {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .tweet:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .tweet-header {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tweet-body {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .tweet-footer {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .emoine-button {
+            background-color: #1DA1F2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .emoine-button:hover {
+            background-color: #0d95e8;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+	.emoine-button.clicked {
+	    background-color: #ffcc00; /* 明るい黄色で嬉しい感じを表現 */
+	    cursor: not-allowed; /* 押せなくするためのカーソル変更 */
+	    color: #333; /* テキストの色を変更してコントラストを高める */
+	}
+
+        .emoine-count {
+            margin-left: 8px;
+            font-size: 14px;
+        }
+
+        .popular-tag {
+            background-color: #ff4500;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .post-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .post-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 10px;
+            }
+
+            .tweet {
+                padding: 15px;
+            }
+
+            .post-button {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span>思い出一覧</span>
+    <a href="award.html">🏆 表彰ページ</a> <!-- 表彰ページへのリンク -->
+</header>
+
+<main>
+    <div class="tweet">
+        <div class="tweet-header">@ShotaSkywalker (高3 男子)</div>
+        <div class="tweet-body">「卒業式の帰り道、夕暮れの校舎を背に、友達と泣きながら未来の話をしたあの瞬間。あれから10年、まだ夢の途中だな。」</div>
+        <div class="tweet-footer">5分前</div>
+        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">8,523</span> エモいね</button>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@HanaLove (高2 女子)</div>
+        <div class="tweet-body">「文化祭の準備、みんなで徹夜した夜が忘れられない。疲れ果てていたけど、朝日を見ながら笑い合ったあの時間は永遠だと思ってた。」</div>
+        <div class="tweet-footer">10分前</div>
+        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">15,342</span> エモいね</button>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@DaiKicks (中3 男子)</div>
+        <div class="tweet-body">「初めて好きな人に告白した放課後。緊張で言葉が出なくて、結局伝えられなかった。でも、それも青春の一部だったんだろうな。」</div>
+        <div class="tweet-footer">15分前</div>
+        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">22,859</span> エモいね</button>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@AiyaSmile (高3 女子)</div>
+        <div class="tweet-body">「最後の部活の大会。結果は負けたけど、みんなで泣きながら抱き合った瞬間、何よりも大切な思い出になった。」</div>
+        <div class="tweet-footer">20分前</div>
+        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">45,764</span> エモいね</button>
+    </div>
+
+    <div class="tweet">
+        <div class="tweet-header">@KenRunner (高1 男子)</div>
+        <div class="tweet-body">「夏休みの終わり、友達と夜通し語り合ったあの日。将来の夢、恋の話、そして何もかもがキラキラしてた。」</div>
+        <div class="tweet-footer">25分前</div>
+        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">100,523</span> エモいね</button>
+        <div class="popular-tag">人気です</div>
+    </div>
+</main>
+
+<!-- 投稿ボタン -->
+<a href="post.html">
+    <button class="post-button">思い出を投稿！</button>
+</a>
+
+<script>
+function increaseEmoine(button) {
+    const clicked = button.getAttribute('data-clicked');
+    if (clicked === "true") {
+        alert("この投稿にはすでにエモいねしています。");
+        return;
+    }
+
+    const emoineCountElement = button.querySelector('.emoine-count');
+    let emoineCount = parseInt(emoineCountElement.textContent.replace(/,/g, ''), 10); // カンマを取り除いて数値に変換
+    emoineCount++; // エモいねを1増やす
+    emoineCountElement.textContent = emoineCount.toLocaleString(); // カンマ区切りをつけて再表示
+
+    button.setAttribute("data-clicked", "true"); // 一度クリックしたことを記録
+    button.classList.add('clicked'); // ボタンの背景色を変更
+}
+</script>
+
+</body>
+</html>

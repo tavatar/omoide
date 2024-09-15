@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エモいね表彰ページ</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8em;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .trophy {
+            font-size: 5em;
+            color: gold;
+        }
+
+        .winner-info {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .prize {
+            background-color: #ff4500;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.3em;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .prize:hover {
+            background-color: #ff6347;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    エモいね表彰ページ
+</header>
+
+<main>
+    <h1>🎉 おめでとうございます！ 🎉</h1>
+    <p>期間内で最も多くの「エモいね」を獲得したユーザーが決定しました！</p>
+    <div class="trophy">🏆</div>
+
+    <!-- ここに表彰されたユーザーの情報を表示 -->
+    <h2>@KenRunner (高1 男子)</h2>
+    <p class="winner-info">期間内で <strong>100,523</strong> エモいねを獲得しました！</p>
+
+    <div class="prize">
+        アマゾンギフト券 1万円分を贈呈いたします！
+    </div>
+
+    <a href="index.html" class="back-button">一覧に戻る</a>
+</main>
+
+<footer>
+    <p>&copy; 2024 Emoi Award</p>
+</footer>
+
+</body>
+</html>
