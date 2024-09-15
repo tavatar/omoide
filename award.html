@@ -3,128 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>エモいね表彰ページ</title>
+    <title>表彰ページ</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f7f7f7;
             color: #333;
         }
 
         header {
-            background-color: #4CAF50;
+            background-color: #ff6f61;
             color: white;
             padding: 20px;
-            text-align: center;
             font-size: 1.8em;
+            text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
 
         main {
             max-width: 800px;
-            margin: 50px auto;
+            margin: 0 auto;
             padding: 20px;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
         }
 
         h1 {
-            font-size: 2.5em;
-            color: #4CAF50;
+            color: #ff6f61;
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 30px;
+        .winner {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        p {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .trophy {
-            font-size: 5em;
-            color: gold;
-        }
-
-        .winner-info {
+        .winner h2 {
             font-size: 1.5em;
-            margin: 20px 0;
+            color: #555;
         }
 
-        .prize {
-            background-color: #ff4500;
-            color: white;
-            padding: 15px;
+        .winner-video {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .winner-episode {
+            font-size: 1.2em;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .prize-info {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 20px;
             border-radius: 10px;
             font-size: 1.3em;
-            margin-top: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .prize:hover {
-            background-color: #ff6347;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .back-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            display: block;
+            text-align: center;
+            margin: 30px auto;
+            background-color: #555;
             color: white;
-            text-decoration: none;
-            border-radius: 5px;
+            padding: 10px 20px;
             font-size: 1.2em;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            width: 200px;
         }
 
         .back-button:hover {
-            background-color: #45a049;
+            background-color: #333;
         }
 
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 15px;
             text-align: center;
-            padding: 10px;
-            margin-top: 50px;
+            font-size: 1.2em;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 10px;
+            }
+
+            .winner-video {
+                width: 100%;
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
 
 <header>
-    エモいね表彰ページ
+    表彰ページ
 </header>
 
 <main>
-    <h1>🎉 おめでとうございます！ 🎉</h1>
-    <p>期間内で最も多くの「エモいね」を獲得したユーザーが決定しました！</p>
-    <div class="trophy">🏆</div>
+    <h1>🎉 表彰されたユーザー 🎉</h1>
 
-    <!-- ここに表彰されたユーザーの情報を表示 -->
-    <h2>@KenRunner (高1 男子)</h2>
-    <p class="winner-info">期間内で <strong>100,523</strong> エモいねを獲得しました！</p>
-
-    <div class="prize">
-        アマゾンギフト券 1万円分を贈呈いたします！
+    <!-- アマゾンギフト券の情報 -->
+    <div class="prize-info">
+        表彰されたユーザーには、アマゾンギフト券1万円分が贈られます！🎁
     </div>
 
+    <div class="winner">
+        <h2>@ShotaSkywalker (高3 男子)</h2>
+        
+        <!-- 動画を埋め込む -->
+        <video class="winner-video" controls>
+            <source src="https://example.com/shota_video.mp4" type="video/mp4">
+            お使いのブラウザは動画の再生をサポートしていません。
+        </video>
+
+        <!-- エピソードの表示 -->
+        <div class="winner-episode">
+            「高校3年間、ずっと使っていたペン。色褪せて少し傷だらけになっていたけど、テストや宿題、ノートの隅っこに落書きする時も、いつもこのペンと一緒だった。卒業の日、このペンが最後の仕事を終えたとき、なんだか友達と別れるような寂しい気持ちになった。」
+        </div>
+    </div>
+
+    <div class="winner">
+        <h2>@HanaLove (高2 女子)</h2>
+
+        <!-- 動画を埋め込む -->
+        <video class="winner-video" controls>
+            <source src="https://example.com/hana_video.mp4" type="video/mp4">
+            お使いのブラウザは動画の再生をサポートしていません。
+        </video>
+
+        <!-- エピソードの表示 -->
+        <div class="winner-episode">
+            「中学2年生の時に買った自転車。毎日通学に使っていたけど、たまに友達と遠くの公園まで探検したり、帰り道に少し遠回りして夕焼けを眺めたり、この自転車と過ごした時間は特別だった。今はもう少し大きい自転車に乗り換えたけど、あの頃の思い出はいつもこの自転車と一緒にある。」
+        </div>
+    </div>
+
+    <!-- 一覧に戻るボタン -->
     <a href="index.html" class="back-button">一覧に戻る</a>
 </main>
 
 <footer>
-    <p>&copy; 2024 Emoi Award</p>
+    &copy; 2024 エモいねサービス - 思い出をシェアしよう！
 </footer>
 
 </body>

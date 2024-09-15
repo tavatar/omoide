@@ -6,125 +6,166 @@
     <title>思い出を投稿</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f7f7f7;
+            color: #333;
         }
+
         header {
-            background-color: #28a745;
+            background-color: #ff6f61;
             color: white;
+            padding: 20px;
+            font-size: 1.8em;
             text-align: center;
-            padding: 15px;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
         }
-        header a {
-            color: white;
-            text-decoration: none;
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
-        }
+
         main {
-            max-width: 600px;
-            margin: 20px auto;
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
         }
-        h2 {
-            color: #333;
-            text-align: center;
-        }
+
         label {
-            font-weight: bold;
-            margin-top: 10px;
             display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #555;
         }
+
+        input[type="text"],
+        select,
         textarea {
             width: 100%;
-            height: 150px;
             padding: 10px;
-            font-size: 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            resize: vertical;
+            font-size: 1em;
+            box-sizing: border-box;
         }
-        select, input[type="radio"] {
-            margin-top: 10px;
+
+        textarea {
+            height: 150px;
         }
-        .gender-option {
-            margin-right: 10px;
+
+        .post-button {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 200px;
         }
-        .form-group {
-            margin-bottom: 20px;
+
+        .post-button:hover {
+            background-color: #e65b53;
         }
-        .submit-button {
-            background-color: #28a745;
+
+        footer {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 10px;
+            }
+
+            .post-button {
+                width: 100%;
+                font-size: 1em;
+            }
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #555;
             color: white;
             padding: 10px 20px;
-            border: none;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
+            text-decoration: none;
+            font-size: 1em;
+            text-align: center;
+            transition: background-color 0.3s ease;
         }
-        .submit-button:hover {
-            background-color: #218838;
+
+        .back-button:hover {
+            background-color: #333;
         }
+
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html">← 一覧に戻る</a>
-    <h1>思い出を投稿</h1>
+    思い出を投稿
 </header>
 
 <main>
-    <h2>あなたの思い出を教えてください</h2>
-    <form>
-        <!-- 本文入力 -->
-        <div class="form-group">
-            <label for="memory-text">思い出の内容</label>
-            <textarea id="memory-text" name="memory-text" placeholder="ここに思い出を書いてください..." required></textarea>
-        </div>
+    <form action="index.html" method="post">
+        <label for="item-name">物の名称</label>
+        <input type="text" id="item-name" name="item-name" placeholder="例: ペン, 自転車, ノート" required>
 
-        <!-- 学年選択 -->
-        <div class="form-group">
-            <label for="grade">学年を選択</label>
-            <select id="grade" name="grade" required>
-                <option value="" disabled selected>学年を選んでください</option>
-                <option value="小1">小学1年生</option>
-                <option value="小2">小学2年生</option>
-                <option value="小3">小学3年生</option>
-                <option value="小4">小学4年生</option>
-                <option value="小5">小学5年生</option>
-                <option value="小6">小学6年生</option>
-                <option value="中1">中学1年生</option>
-                <option value="中2">中学2年生</option>
-                <option value="中3">中学3年生</option>
-                <option value="高1">高校1年生</option>
-                <option value="高2">高校2年生</option>
-                <option value="高3">高校3年生</option>
-            </select>
-        </div>
+        <label for="grade">学年</label>
+        <select id="grade" name="grade" required>
+            <option value="小1">小1</option>
+            <option value="小2">小2</option>
+            <option value="小3">小3</option>
+            <option value="小4">小4</option>
+            <option value="小5">小5</option>
+            <option value="小6">小6</option>
+            <option value="中1">中1</option>
+            <option value="中2">中2</option>
+            <option value="中3">中3</option>
+            <option value="高1">高1</option>
+            <option value="高2">高2</option>
+            <option value="高3">高3</option>
+        </select>
 
-        <!-- 性別選択 -->
-        <div class="form-group">
-            <label>性別を選択</label>
-            <label class="gender-option"><input type="radio" name="gender" value="男性" required> 男性</label>
-            <label class="gender-option"><input type="radio" name="gender" value="女性"> 女性</label>
-        </div>
+        <label for="gender">性別</label>
+        <select id="gender" name="gender" required>
+            <option value="男子">男子</option>
+            <option value="女子">女子</option>
+        </select>
 
-        <!-- 送信ボタン -->
-        <button type="submit" class="submit-button">思い出を投稿する</button>
+        <label for="memory">思い出の内容</label>
+        <textarea id="memory" name="memory" placeholder="思い出を書いてください..." required></textarea>
+
+        <button type="submit" class="post-button">投稿する</button>
     </form>
+
+    <a href="index.html" class="back-button">一覧に戻る</a>
 </main>
+
+<footer>
+    &copy; 2024 エモいねサービス - 思い出をシェアしよう！
+</footer>
 
 </body>
 </html>

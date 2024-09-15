@@ -3,161 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>思い出一覧</title>
+    <title>エモいね一覧</title>
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f7f7f7;
+            color: #333;
         }
 
-	header {
-	    background-color: #4CAF50;
-	    color: white;
-	    padding: 15px;
-	    text-align: center;
-	    font-size: 1.5em;
-	    position: sticky;
-	    top: 0;
-	    z-index: 1000;
-	    display: flex;
-	    justify-content: center; /* 中央に配置 */
-	    align-items: center;
-	    position: relative; /* 「表彰ページ」リンクの位置を調整するためにrelativeを指定 */
-	}
+        header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 20px;
+            font-size: 1.8em;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-	header a {
-	    position: absolute; /* ヘッダ内で「表彰ページ」リンクを右上に配置 */
-	    right: 15px; /* 右端に固定 */
-	    color: white;
-	    text-decoration: none;
-	    font-size: 1em;
-	    background-color: #ff4500;
-	    padding: 10px 15px;
-	    border-radius: 5px;
-	    transition: background-color 0.3s ease;
-	}
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
         header a:hover {
-            background-color: #ff6347;
+            background-color: #e6b800;
         }
 
         main {
-            max-width: 600px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .tweet {
             background-color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: relative;
+            border: 1px solid #ddd;
+            text-align: center;
         }
 
-        .tweet:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        .tweet img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         .tweet-header {
             font-weight: bold;
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .tweet-item {
             font-size: 1.1em;
-            color: #333;
-            margin-bottom: 10px;
+            color: #ff6f61;
+            margin-bottom: 15px;
         }
 
         .tweet-body {
-            font-size: 1em;
-            color: #555;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
             line-height: 1.5;
-            margin-bottom: 15px;
         }
 
         .tweet-footer {
             font-size: 0.9em;
-            color: #777;
-            margin-bottom: 10px;
+            color: #888;
         }
 
         .emoine-button {
-            background-color: #1DA1F2;
+            background-color: #ff5a5f;
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 1em;
+            font-weight: bold;
             cursor: pointer;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .emoine-button.clicked {
+            background-color: #ffcc00; /* 押した後の色 */
+            color: white;
         }
 
         .emoine-button:hover {
-            background-color: #0d95e8;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            background-color: #ff4449;
         }
-	.emoine-button.clicked {
-	    background-color: #ffcc00; /* 明るい黄色で嬉しい感じを表現 */
-	    cursor: not-allowed; /* 押せなくするためのカーソル変更 */
-	    color: #333; /* テキストの色を変更してコントラストを高める */
-	}
+
+        .emoine-button.clicked:hover {
+            background-color: #e6b800; /* 押した後のhover時の色 */
+        }
 
         .emoine-count {
             margin-left: 8px;
-            font-size: 14px;
+            font-size: 1em;
         }
 
         .popular-tag {
-            background-color: #ff4500;
+            background-color: #ffb400;
             color: white;
             padding: 5px 10px;
             border-radius: 5px;
-            font-size: 12px;
+            font-size: 0.8em;
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
         }
 
-        .post-button {
+        .floating-post-button {
             position: fixed;
-            bottom: 20px;
+            bottom: 80px;
             right: 20px;
-            background-color: #28a745;
+            background-color: #ff6f61;
             color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 18px;
+            padding: 15px 30px;
+            font-size: 1.2em;
             font-weight: bold;
+            border-radius: 50px;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s ease;
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .post-button:hover {
-            background-color: #218838;
-            transform: scale(1.05);
+        .floating-post-button:hover {
+            background-color: #e65b53;
         }
 
-        @media (max-width: 600px) {
+        footer {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
             main {
                 padding: 10px;
             }
 
-            .tweet {
-                padding: 15px;
+            .emoine-button {
+                padding: 10px 15px;
+                font-size: 0.9em;
             }
 
-            .post-button {
-                padding: 10px 20px;
-                font-size: 16px;
+            .floating-post-button {
+                width: auto;
+                font-size: 1em;
             }
         }
     </style>
@@ -165,69 +192,85 @@
 <body>
 
 <header>
-    <span>思い出一覧</span>
-    <a href="award.html">🏆 表彰ページ</a> <!-- 表彰ページへのリンク -->
+    <span class="header-title">エモいね一覧</span>
+    <a href="award.html">🏆 表彰ページ</a>
 </header>
 
 <main>
     <div class="tweet">
         <div class="tweet-header">@ShotaSkywalker (高3 男子)</div>
-        <div class="tweet-body">「卒業式の帰り道、夕暮れの校舎を背に、友達と泣きながら未来の話をしたあの瞬間。あれから10年、まだ夢の途中だな。」</div>
+        <div class="tweet-item">物: ペン</div>
+        <img src="https://example.com/pen.jpg" alt="愛用のペンの画像">
+        <div class="tweet-body">「高校3年間、ずっと使っていたペン。色褪せて少し傷だらけになっていたけど、テストや宿題、ノートの隅っこに落書きする時も、いつもこのペンと一緒だった。卒業の日、このペンが最後の仕事を終えたとき、なんだか友達と別れるような寂しい気持ちになった。」</div>
         <div class="tweet-footer">5分前</div>
         <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">8,523</span> エモいね</button>
     </div>
 
     <div class="tweet">
         <div class="tweet-header">@HanaLove (高2 女子)</div>
-        <div class="tweet-body">「文化祭の準備、みんなで徹夜した夜が忘れられない。疲れ果てていたけど、朝日を見ながら笑い合ったあの時間は永遠だと思ってた。」</div>
+        <div class="tweet-item">物: 自転車</div>
+        <img src="https://example.com/bicycle.jpg" alt="自転車の画像">
+        <div class="tweet-body">「中学2年生の時に買った自転車。毎日通学に使っていたけど、たまに友達と遠くの公園まで探検したり、帰り道に少し遠回りして夕焼けを眺めたり、この自転車と過ごした時間は特別だった。今はもう少し大きい自転車に乗り換えたけど、あの頃の思い出はいつもこの自転車と一緒にある。」</div>
         <div class="tweet-footer">10分前</div>
         <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">15,342</span> エモいね</button>
     </div>
 
     <div class="tweet">
         <div class="tweet-header">@DaiKicks (中3 男子)</div>
-        <div class="tweet-body">「初めて好きな人に告白した放課後。緊張で言葉が出なくて、結局伝えられなかった。でも、それも青春の一部だったんだろうな。」</div>
+        <div class="tweet-item">物: ノート</div>
+        <img src="https://example.com/notebook.jpg" alt="ノートの画像">
+        <div class="tweet-body">「勉強が苦手だった俺が、唯一最後まで埋め尽くしたノート。ノートの端っこには先生の話を無視して書いたラクガキや、友達と回したメモがいっぱい。勉強の内容はあまり覚えてないけど、このノートを見返すと、あの頃の自分が何を考えていたのかが一瞬で蘇る。」</div>
         <div class="tweet-footer">15分前</div>
         <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">22,859</span> エモいね</button>
     </div>
 
     <div class="tweet">
         <div class="tweet-header">@AiyaSmile (高3 女子)</div>
-        <div class="tweet-body">「最後の部活の大会。結果は負けたけど、みんなで泣きながら抱き合った瞬間、何よりも大切な思い出になった。」</div>
+        <div class="tweet-item">物: スマホ</div>
+        <img src="https://example.com/smartphone.jpg" alt="スマホの画像">
+        <div class="tweet-body">「高校時代に初めて手にしたスマホ。クラスメートとグループチャットをしたり、深夜まで友達と電話したり、好きな人にメッセージを送る時に何度も何度も書き直したことを覚えている。スクリーンには今でも小さな傷が残っているけど、その傷さえも懐かしく思える。」</div>
         <div class="tweet-footer">20分前</div>
         <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">45,764</span> エモいね</button>
     </div>
 
     <div class="tweet">
         <div class="tweet-header">@KenRunner (高1 男子)</div>
-        <div class="tweet-body">「夏休みの終わり、友達と夜通し語り合ったあの日。将来の夢、恋の話、そして何もかもがキラキラしてた。」</div>
+        <div class="tweet-item">物: サッカーボール</div>
+        <img src="https://example.com/soccer_ball.jpg" alt="サッカーボールの画像">
+        <div class="tweet-body">「部活で毎日蹴り続けたサッカーボール。何度もパス練習を繰り返し、試合の日は汗だくになってゴールを目指して走った。試合に負けてこのボールを抱えて泣いたこともあったけど、ボールはいつも黙って俺の足元にいてくれた。」</div>
         <div class="tweet-footer">25分前</div>
         <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">100,523</span> エモいね</button>
         <div class="popular-tag">人気です</div>
     </div>
 </main>
 
-<!-- 投稿ボタン -->
+<!-- フローティング投稿ボタン -->
 <a href="post.html">
-    <button class="post-button">思い出を投稿！</button>
+    <button class="floating-post-button">思い出を投稿！</button>
 </a>
 
+<footer>
+    &copy; 2024 エモいねサービス - 思い出をシェアしよう！
+</footer>
+
 <script>
-function increaseEmoine(button) {
-    const clicked = button.getAttribute('data-clicked');
-    if (clicked === "true") {
-        alert("この投稿にはすでにエモいねしています。");
-        return;
+    function increaseEmoine(button) {
+        const clicked = button.getAttribute('data-clicked');
+        if (clicked === "true") {
+            alert("この投稿にはすでにエモいねしています。");
+            return;
+        }
+
+        const emoineCountElement = button.querySelector('.emoine-count');
+        let emoineCount = parseInt(emoineCountElement.textContent.replace(/,/g, ''), 10); // カンマを取り除いて数値に変換
+        emoineCount++; // エモいねを1増やす
+        emoineCountElement.textContent = emoineCount.toLocaleString(); // カンマ区切りをつけて再表示
+
+        // ボタンの背景色を変える
+        button.classList.add("clicked");
+
+        button.setAttribute("data-clicked", "true"); // 一度クリックしたことを記録
     }
-
-    const emoineCountElement = button.querySelector('.emoine-count');
-    let emoineCount = parseInt(emoineCountElement.textContent.replace(/,/g, ''), 10); // カンマを取り除いて数値に変換
-    emoineCount++; // エモいねを1増やす
-    emoineCountElement.textContent = emoineCount.toLocaleString(); // カンマ区切りをつけて再表示
-
-    button.setAttribute("data-clicked", "true"); // 一度クリックしたことを記録
-    button.classList.add('clicked'); // ボタンの背景色を変更
-}
 </script>
 
 </body>
