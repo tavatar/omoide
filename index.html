@@ -96,37 +96,28 @@
             color: #888;
         }
 
-        .emoine-button {
-            background-color: #ff5a5f;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 20px;
-            font-size: 1em;
-            font-weight: bold;
+        .emoine-stars {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .emoine-star {
+            font-size: 1.5em;
             cursor: pointer;
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            transition: background-color 0.3s ease;
+            color: lightgray;
+            transition: color 0.3s ease;
         }
 
-        .emoine-button.clicked {
-            background-color: #ffcc00; /* 押した後の色 */
-            color: white;
-        }
-
-        .emoine-button:hover {
-            background-color: #ff4449;
-        }
-
-        .emoine-button.clicked:hover {
-            background-color: #e6b800; /* 押した後のhover時の色 */
+        .emoine-star.selected {
+            color: gold;
         }
 
         .emoine-count {
-            margin-left: 8px;
             font-size: 1em;
+            color: #ff6f61;
+            margin-left: 10px;
         }
 
         .popular-tag {
@@ -204,7 +195,14 @@
         <img src="./high_school_pen_image.png" alt="愛用のペンの画像">
         <div class="tweet-body">「高校3年間、ずっと使っていたペン。色褪せて少し傷だらけになっていたけど、テストや宿題、ノートの隅っこに落書きする時も、いつもこのペンと一緒だった。卒業の日、このペンが最後の仕事を終えたとき、なんだか友達と別れるような寂しい気持ちになった。」</div>
         <div class="tweet-footer">5分前</div>
-        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">8,523</span> エモいね</button>
+
+        <!-- 星3段階でエモさを評価 -->
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count" data-count="8523">8,523 エモいね</span>
     </div>
 
     <div class="tweet">
@@ -213,7 +211,14 @@
         <img src="./middle_school_bicycle_image.png" alt="自転車の画像">
         <div class="tweet-body">「中学2年生の時に買った自転車。毎日通学に使っていたけど、たまに友達と遠くの公園まで探検したり、帰り道に少し遠回りして夕焼けを眺めたり、この自転車と過ごした時間は特別だった。今はもう少し大きい自転車に乗り換えたけど、あの頃の思い出はいつもこの自転車と一緒にある。」</div>
         <div class="tweet-footer">10分前</div>
-        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">15,342</span> エモいね</button>
+
+        <!-- 星3段階でエモさを評価 -->
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count" data-count="15342">15,342 エモいね</span>
     </div>
 
     <div class="tweet">
@@ -222,7 +227,14 @@
         <img src="./full_notebook_image.png" alt="ノートの画像">
         <div class="tweet-body">「勉強が苦手だった俺が、唯一最後まで埋め尽くしたノート。ノートの端っこには先生の話を無視して書いたラクガキや、友達と回したメモがいっぱい。勉強の内容はあまり覚えてないけど、このノートを見返すと、あの頃の自分が何を考えていたのかが一瞬で蘇る。」</div>
         <div class="tweet-footer">15分前</div>
-        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">22,859</span> エモいね</button>
+
+        <!-- 星3段階でエモさを評価 -->
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count" data-count="22859">22,859 エモいね</span>
     </div>
 
     <div class="tweet">
@@ -231,7 +243,14 @@
         <img src="./first_smartphone_image.png" alt="スマホの画像">
         <div class="tweet-body">「高校時代に初めて手にしたスマホ。クラスメートとグループチャットをしたり、深夜まで友達と電話したり、好きな人にメッセージを送る時に何度も何度も書き直したことを覚えている。スクリーンには今でも小さな傷が残っているけど、その傷さえも懐かしく思える。」</div>
         <div class="tweet-footer">20分前</div>
-        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">45,764</span> エモいね</button>
+
+        <!-- 星3段階でエモさを評価 -->
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count" data-count="45764">45,764 エモいね</span>
     </div>
 
     <div class="tweet">
@@ -240,9 +259,17 @@
         <img src="./soccer_ball_image.png" alt="サッカーボールの画像">
         <div class="tweet-body">「部活で毎日蹴り続けたサッカーボール。何度もパス練習を繰り返し、試合の日は汗だくになってゴールを目指して走った。試合に負けてこのボールを抱えて泣いたこともあったけど、ボールはいつも黙って俺の足元にいてくれた。」</div>
         <div class="tweet-footer">25分前</div>
-        <button class="emoine-button" onclick="increaseEmoine(this)" data-clicked="false">✨ <span class="emoine-count">100,523</span> エモいね</button>
+
+        <!-- 星3段階でエモさを評価 -->
+        <div class="emoine-stars" data-selected="0" onclick="rateEmoine(event, this)">
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+            <span class="emoine-star">☆</span>
+        </div>
+        <span class="emoine-count" data-count="100523">100,523 エモいね</span>
         <div class="popular-tag">人気です</div>
     </div>
+
 </main>
 
 <!-- フローティング投稿ボタン -->
@@ -255,22 +282,35 @@
 </footer>
 
 <script>
-    function increaseEmoine(button) {
-        const clicked = button.getAttribute('data-clicked');
-        if (clicked === "true") {
-            alert("この投稿にはすでにエモいねしています。");
+    function rateEmoine(event, element) {
+        const stars = element.querySelectorAll('.emoine-star');
+        const selected = element.getAttribute('data-selected');
+        const countElement = element.nextElementSibling;
+        let currentCount = parseInt(countElement.getAttribute('data-count'));
+        
+        if (selected === "1") {
+            alert("すでに評価済みです。");
             return;
         }
 
-        const emoineCountElement = button.querySelector('.emoine-count');
-        let emoineCount = parseInt(emoineCountElement.textContent.replace(/,/g, ''), 10); // カンマを取り除いて数値に変換
-        emoineCount++; // エモいねを1増やす
-        emoineCountElement.textContent = emoineCount.toLocaleString(); // カンマ区切りをつけて再表示
+        let clickedStarIndex = Array.from(stars).indexOf(event.target);
 
-        // ボタンの背景色を変える
-        button.classList.add("clicked");
+        // すべての星の選択状態をリセットし、選択された星を「★」に変更
+        stars.forEach((star, index) => {
+            if (index <= clickedStarIndex) {
+                star.textContent = '★';  // 星が選択されると「★」に変わる
+            } else {
+                star.textContent = '☆';  // 選択されていない星は「☆」のまま
+            }
+        });
 
-        button.setAttribute("data-clicked", "true"); // 一度クリックしたことを記録
+        // エモいね数をクリックした星の数だけ増加
+        currentCount += clickedStarIndex + 1;
+        countElement.textContent = currentCount.toLocaleString() + " エモいね";
+        countElement.setAttribute('data-count', currentCount);
+
+        // 一度評価したら評価済みとする
+        element.setAttribute('data-selected', "1");
     }
 </script>
 
